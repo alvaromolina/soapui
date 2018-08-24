@@ -1,0 +1,185 @@
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://vivaWallet.nuevatel.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="VivaWalletAdministrationWSService" targetNamespace="http://vivaWallet.nuevatel.com/">
+<wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://vivaWallet.nuevatel.com/" elementFormDefault="unqualified" targetNamespace="http://vivaWallet.nuevatel.com/" version="1.0">
+<xs:element name="getCachesSize" type="tns:getCachesSize"/>
+<xs:element name="getCachesSizeResponse" type="tns:getCachesSizeResponse"/>
+<xs:element name="getMemoryInformation" type="tns:getMemoryInformation"/>
+<xs:element name="getMemoryInformationResponse" type="tns:getMemoryInformationResponse"/>
+<xs:element name="reloadSystemConfiguration" type="tns:reloadSystemConfiguration"/>
+<xs:element name="reloadSystemConfigurationResponse" type="tns:reloadSystemConfigurationResponse"/>
+<xs:element name="resetTemporaryBlockedAccount" type="tns:resetTemporaryBlockedAccount"/>
+<xs:element name="resetTemporaryBlockedAccountResponse" type="tns:resetTemporaryBlockedAccountResponse"/>
+<xs:complexType name="getCachesSize">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="getCachesSizeResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:cacheSizeResponse"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="cacheSizeResponse">
+<xs:complexContent>
+<xs:extension base="tns:response">
+<xs:sequence>
+<xs:element name="cachesSize">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="xs:string"/>
+<xs:element minOccurs="0" name="value" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="response">
+<xs:sequence>
+<xs:element name="errorCode" type="xs:int"/>
+<xs:element minOccurs="0" name="errorMessage" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="resetTemporaryBlockedAccount">
+<xs:sequence>
+<xs:element name="mobileNumber" type="xs:long"/>
+<xs:element minOccurs="0" name="subscriberId" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="resetTemporaryBlockedAccountResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:response"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="reloadSystemConfiguration">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="reloadSystemConfigurationResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:response"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getMemoryInformation">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="getMemoryInformationResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:memoryInformationResponse"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="memoryInformationResponse">
+<xs:complexContent>
+<xs:extension base="tns:response">
+<xs:sequence>
+<xs:element name="memoryInformation">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="xs:string"/>
+<xs:element minOccurs="0" name="value" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+</xs:schema>
+</wsdl:types>
+<wsdl:message name="reloadSystemConfigurationResponse">
+<wsdl:part element="tns:reloadSystemConfigurationResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="resetTemporaryBlockedAccount">
+<wsdl:part element="tns:resetTemporaryBlockedAccount" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="resetTemporaryBlockedAccountResponse">
+<wsdl:part element="tns:resetTemporaryBlockedAccountResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="getCachesSize">
+<wsdl:part element="tns:getCachesSize" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="getMemoryInformationResponse">
+<wsdl:part element="tns:getMemoryInformationResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="getCachesSizeResponse">
+<wsdl:part element="tns:getCachesSizeResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="getMemoryInformation">
+<wsdl:part element="tns:getMemoryInformation" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="reloadSystemConfiguration">
+<wsdl:part element="tns:reloadSystemConfiguration" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:portType name="VivaWalletAdministrationWS">
+<wsdl:operation name="getCachesSize">
+<wsdl:input message="tns:getCachesSize" name="getCachesSize"> </wsdl:input>
+<wsdl:output message="tns:getCachesSizeResponse" name="getCachesSizeResponse"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="resetTemporaryBlockedAccount">
+<wsdl:input message="tns:resetTemporaryBlockedAccount" name="resetTemporaryBlockedAccount"> </wsdl:input>
+<wsdl:output message="tns:resetTemporaryBlockedAccountResponse" name="resetTemporaryBlockedAccountResponse"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="reloadSystemConfiguration">
+<wsdl:input message="tns:reloadSystemConfiguration" name="reloadSystemConfiguration"> </wsdl:input>
+<wsdl:output message="tns:reloadSystemConfigurationResponse" name="reloadSystemConfigurationResponse"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getMemoryInformation">
+<wsdl:input message="tns:getMemoryInformation" name="getMemoryInformation"> </wsdl:input>
+<wsdl:output message="tns:getMemoryInformationResponse" name="getMemoryInformationResponse"> </wsdl:output>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="VivaWalletAdministrationWSServiceSoapBinding" type="tns:VivaWalletAdministrationWS">
+<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="getCachesSize">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="getCachesSize">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getCachesSizeResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="resetTemporaryBlockedAccount">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="resetTemporaryBlockedAccount">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="resetTemporaryBlockedAccountResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="reloadSystemConfiguration">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="reloadSystemConfiguration">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="reloadSystemConfigurationResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getMemoryInformation">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="getMemoryInformation">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getMemoryInformationResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="VivaWalletAdministrationWSService">
+<wsdl:port binding="tns:VivaWalletAdministrationWSServiceSoapBinding" name="VivaWalletWSPort">
+<soap:address location="http://localhost:8000/VivaWalletAdministrationWS"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>
